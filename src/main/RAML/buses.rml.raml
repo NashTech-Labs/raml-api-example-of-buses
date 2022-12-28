@@ -1,0 +1,38 @@
+#%RAML 1.0
+version: 1.0
+baseUri: http://com.foo.bar/api
+title: Bus-API
+description: API to get and update buses Laxmi Travels and Volvo Bus
+protocols:
+  - HTTP
+/buses:
+  get:
+    description: Get buses from both buses filtering by origin and destination busstand.
+    queryParameters:
+      origin:
+        required: true
+        type: string
+        default: NCR
+        description: Origin busstand
+      destination:
+        required: true
+        type: string
+        default: XYZ
+        description: Destination busstand
+      airline:
+        required: false
+        type: string
+        default: ''
+        description: Filter results by busstand support
+    responses:
+      200:
+        body:
+          application/json:
+  post:
+    description: Insert a new bus
+    responses:
+      201:
+        body:
+          application/json:
+
+
